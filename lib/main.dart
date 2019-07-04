@@ -3,10 +3,13 @@
  * @Author: tgb
  * @Date: 2019-06-30 16:47:46
  * @LastEditors: tgb
- * @LastEditTime: 2019-07-02 21:38:55
+ * @LastEditTime: 2019-07-04 21:30:25
  */
 import 'package:flutter/material.dart';
-import './model/post.dart';
+
+import './demo/drawer_demo.dart';
+import './demo/bottom_navigation_bar_demo.dart';
+import './demo/listview_demo.dart';
 
 void main() {
   runApp(new MyApp());
@@ -16,10 +19,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Home(),
       // 主题
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        primarySwatch: Colors.yellow, // 主题颜色
+        highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
+        splashColor: Colors.white70,
       ),
     );
   }
@@ -27,59 +33,55 @@ class MyApp extends StatelessWidget {
 
 // 首页
 class Home extends StatelessWidget {
-  // 生成列表数据
-  Widget _listItemBuilder(BuildContext context, int index) {
-    return Container(
-      color: Colors.white,
-      margin: EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          Image.network(posts[index].imageUrl),
-          SizedBox(height: 16.0),
-          Text(
-            posts[index].title,
-            style: Theme.of(context).textTheme.title,
-          ),
-          Text(
-            posts[index].author,
-            style: Theme.of(context).textTheme.subhead,
-          ),
-          SizedBox(height: 16.0)
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // 导航栏
-      appBar: AppBar(
-        title: Text('NINGHAO'),
-        elevation: 0.0, // 导航栏阴影
-      ),
-      body: ListView.builder(
-        itemCount: posts.length,
-        itemBuilder: _listItemBuilder,
-      ),
-      // 背景颜色
-      backgroundColor: Colors.grey[100],
-    );
-  }
-}
-
-class Hello extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'hello',
-        textDirection: TextDirection.ltr,
-        style: TextStyle(
-          fontSize: 40.0,
-          fontWeight: FontWeight.bold,
-          // color: Colors.yellow,
+    // 使用Tab栏
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        // 导航栏
+        appBar: AppBar(
+          // leading: IconButton(
+          //   icon: Icon(Icons.menu),
+          //   tooltip: 'Navigration',
+          //   onPressed: () => debugPrint('Navigration button is pressed.'),
+          // ),
+          title: Text('NINGHAO'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              tooltip: 'Search',
+              onPressed: () => debugPrint('Search button is pressed.'),
+            )
+          ],
+          elevation: 0.0, // 导航栏阴影
+          // 导航底部
+          bottom: TabBar(
+            unselectedLabelColor: Colors.black38,
+            indicatorColor: Colors.black54,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorWeight: 1.0,
+            tabs: <Widget>[
+              Tab(icon: Icon(Icons.local_florist)),
+              Tab(icon: Icon(Icons.change_history)),
+              Tab(icon: Icon(Icons.directions_bike)),
+            ],
+          ),
         ),
+        body: TabBarView(
+          children: <Widget>[
+            ListViewDemo(),
+            // Icon(Icons.local_florist, size: 128.0, color: Colors.black12),
+            Icon(Icons.change_history, size: 128.0, color: Colors.black12),
+            Icon(Icons.directions_bike, size: 128.0, color: Colors.black12),
+          ],
+        ),
+        // 抽屉部件
+        drawer: DrawDemo(),
+        // 底部导航栏
+        bottomNavigationBar: BottomNavigationBarDemo(),
+        // 背景颜色
+        backgroundColor: Colors.grey[100],
       ),
     );
   }
