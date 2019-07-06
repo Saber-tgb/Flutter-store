@@ -1,3 +1,10 @@
+/*
+ * @Description: 底部导航
+ * @Author: tgb
+ * @Date: 2019-07-04 21:20:57
+ * @LastEditors: tgb
+ * @LastEditTime: 2019-07-06 21:46:58
+ */
 import 'package:flutter/material.dart';
 
 class BottomNavigationBarDemo extends StatefulWidget {
