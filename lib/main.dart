@@ -3,7 +3,7 @@
  * @Author: tgb
  * @Date: 2019-06-30 16:47:46
  * @LastEditors: tgb
- * @LastEditTime: 2019-07-06 22:58:11
+ * @LastEditTime: 2019-07-06 23:39:23
  */
 import 'package:flutter/material.dart';
 import './demo/drawer_demo.dart';
@@ -11,7 +11,10 @@ import './demo/bottom_navigation_bar_demo.dart';
 import './demo/listview_demo.dart';
 import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
+<<<<<<< HEAD
 import './demo/view_demo.dart';
+=======
+>>>>>>> fce2e2653e64b9640e298bfef17df7ff5c508856
 
 void main() {
   runApp(new MyApp());
@@ -76,7 +79,10 @@ class Home extends StatelessWidget {
             ListViewDemo(),
             BasicDemo(),
             LayoutDemo(),
+<<<<<<< HEAD
             ViewDeomo(),
+=======
+>>>>>>> fce2e2653e64b9640e298bfef17df7ff5c508856
           ],
         ),
         // 抽屉部件
