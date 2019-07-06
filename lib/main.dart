@@ -3,13 +3,15 @@
  * @Author: tgb
  * @Date: 2019-06-30 16:47:46
  * @LastEditors: tgb
- * @LastEditTime: 2019-07-04 21:44:17
+ * @LastEditTime: 2019-07-06 22:58:11
  */
 import 'package:flutter/material.dart';
 import './demo/drawer_demo.dart';
 import './demo/bottom_navigation_bar_demo.dart';
 import './demo/listview_demo.dart';
 import './demo/basic_demo.dart';
+import './demo/layout_demo.dart';
+import './demo/view_demo.dart';
 
 void main() {
   runApp(new MyApp());
@@ -37,7 +39,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     // 使用Tab栏
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         // 导航栏
         appBar: AppBar(
@@ -65,6 +67,7 @@ class Home extends StatelessWidget {
               Tab(icon: Icon(Icons.local_florist)),
               Tab(icon: Icon(Icons.change_history)),
               Tab(icon: Icon(Icons.directions_bike)),
+              Tab(icon: Icon(Icons.view_quilt)),
             ],
           ),
         ),
@@ -72,12 +75,13 @@ class Home extends StatelessWidget {
           children: <Widget>[
             ListViewDemo(),
             BasicDemo(),
-            Icon(Icons.directions_bike, size: 128.0, color: Colors.black12),
+            LayoutDemo(),
+            ViewDeomo(),
           ],
         ),
         // 抽屉部件
         drawer: DrawDemo(),
-        // 底部导航栏
+        // 底部栏
         bottomNavigationBar: BottomNavigationBarDemo(),
         // 背景颜色
         backgroundColor: Colors.grey[100],

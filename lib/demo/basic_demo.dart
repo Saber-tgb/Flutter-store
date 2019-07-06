@@ -1,3 +1,11 @@
+/*
+ * @Description: 基础样式组建
+ * @Author: tgb
+ * @Date: 2019-07-04 21:42:41
+ * @LastEditors: tgb
+ * @LastEditTime: 2019-07-06 21:46:42
+ */
+
 import 'package:flutter/material.dart';
 
 class BasicDemo extends StatelessWidget {
