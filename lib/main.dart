@@ -3,7 +3,7 @@
  * @Author: tgb
  * @Date: 2019-06-30 16:47:46
  * @LastEditors: tgb
- * @LastEditTime: 2019-07-07 13:17:00
+ * @LastEditTime: 2019-07-07 16:10:31
  */
 import 'package:flutter/material.dart';
 import './demo/drawer_demo.dart';
@@ -11,8 +11,9 @@ import './demo/bottom_navigation_bar_demo.dart';
 import './demo/listview_demo.dart';
 import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
-import './demo/view_demo.dart';
+// import './demo/view_demo.dart';
 import './demo/sliver_demo.dart';
+import './demo/navigator_demo.dart';
 
 void main() {
   runApp(new MyApp());
@@ -23,8 +24,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: Home(),
-      home: Home(),
+      // 首页,
+      // home: NavigatorDemo(),
+      // 定义路由
+      initialRoute: '/', // 根路由
+      routes: {
+        '/': (context) => Home(),
+        '/about': (context) => Page(title: 'About'),
+      },
       // 主题
       theme: ThemeData(
         primarySwatch: Colors.yellow, // 主题颜色
