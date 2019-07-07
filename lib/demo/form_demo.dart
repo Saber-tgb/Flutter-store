@@ -1,9 +1,20 @@
+/*
+ * @Description: material 表单小部件
+ * @Author: tgb
+ * @Date: 2019-07-07 16:46:29
+ * @LastEditors: tgb
+ * @LastEditTime: 2019-07-07 18:35:31
+ */
 import 'package:flutter/material.dart';
 
 class FormDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('FormDemo'),
+        elevation: 0.0,
+      ),
       body: Theme(
         data: Theme.of(context).copyWith(
           primaryColor: Colors.black,

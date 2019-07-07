@@ -3,10 +3,10 @@
  * @Author: tgb
  * @Date: 2019-07-02 21:18:37
  * @LastEditors: tgb
- * @LastEditTime: 2019-07-07 16:36:21
+ * @LastEditTime: 2019-07-07 18:55:52
  */
 class Post {
-  const Post({
+  Post({
     this.title,
     this.author,
     this.imageUrl,
@@ -17,6 +17,8 @@ class Post {
   final String author;
   final String imageUrl;
   final String description;
+
+  bool selected = false;
 }
 
 final List<Post> posts = [
